@@ -195,7 +195,7 @@ This repo includes a **GitHub Actions pipeline** (`.github/workflows/run_pipelin
 
 You can manually trigger via:
 - **GitHub Actions → Run workflow**  
-- Or locally with:
+You can view the data locally with:
 ```bash
 python orchestrator/main.py
 ```
