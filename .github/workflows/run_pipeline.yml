@@ -38,6 +38,10 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Install mockup dependencies
+        run: npm ci
+        working-directory: ./mockup
+
       - name: Run all services and orchestrator
         run: python run_all.py
         working-directory: ./orchestrator
