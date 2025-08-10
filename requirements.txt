@@ -6,6 +6,5 @@ requests
 pillow
 google-genai
 huggingface-hub
-sqlite3
 transformers
 torch
