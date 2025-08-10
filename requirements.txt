@@ -1,0 +1,11 @@
+python-dotenv
+fastapi
+uvicorn
+openai
+requests
+pillow
+google-genai
+huggingface-hub
+sqlite3
+transformers
+torch

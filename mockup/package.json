@@ -1,0 +1,19 @@
+{
+  "name": "dynamic-mockup-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "express": "^4.21.2",
+    "node-fetch": "^3.3.2",
+    "python-shell": "^5.0.0"
+  }
+}
