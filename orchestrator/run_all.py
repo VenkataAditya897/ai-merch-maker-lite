@@ -34,6 +34,17 @@ def wait_for_service(url, retries=10, delay=3):
         print(f"Waiting for service at {url} ({i+1}/{retries})...")
         time.sleep(delay)
     return False
+def print_process_logs(name, proc):
+    try:
+        stdout, stderr = proc.communicate(timeout=5)
+        if stdout:
+            print(f"[{name} STDOUT]\n{stdout.decode()}")
+        if stderr:
+            print(f"[{name} STDERR]\n{stderr.decode()}")
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        print(f"[{name}] Process killed after timeout while reading logs.")
+
 
 def main():
     procs = {}
@@ -53,6 +64,7 @@ def main():
         for name, svc in SERVICES.items():
             if not wait_for_service(svc["url"]):
                 print(f"Error: {name} service failed to start in time.")
+                print_process_logs(name, procs[name])
                 raise Exception(f"{name} service not ready")
 
         # Run the orchestrator
@@ -76,6 +88,7 @@ def main():
         print("Terminating all services...")
         for proc in procs.values():
             proc.terminate()
+            print_process_logs(name, proc)
         print("All services terminated.")
 
 if __name__ == "__main__":
