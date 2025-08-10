@@ -57,7 +57,7 @@ def main():
                 cwd=svc["cwd"],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
-                shell=True  # required for Windows sometimes, but can be adjusted
+                shell=False  # required for Windows sometimes, but can be adjusted
             )
 
         # Wait for all services to be ready
